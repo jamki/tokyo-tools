@@ -1,0 +1,54 @@
+<html ng-ap>
+  <head>
+    <title>half it</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfill -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/@angular/core/bundles/core.umd.js"></script>
+    <script src="node_modules/@angular/common/bundles/common.umd.js"></script>
+    <script src="node_modules/@angular/compiler/bundles/compiler.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+
+    <!-- 2. Load our 'modules' -->
+    <!-- <script src='app/app.component.js'></script>
+    <script src='app/app.module.js'></script>
+    <script src='app/main.js'></script> -->
+
+    <script src='app/rate.js'></script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <div class="container" ng-app="rate1" ng-controller="RateController as rate">
+      <header>
+        <h1>How much?</h1>
+      </header>
+      <section class="content">
+        <div class="input-section">
+          Price: <input type="number" min="0" ng-model="rate.cost" required >
+          <select ng-model="rate.inCurr">
+            <option ng-repeat="c in rate.currencies">{{c}}</option>
+          </select>
+        </div>
+        <div class="total-section">
+          <h2>Rates:</h2>
+          <div ng-repeat="c in rate.currencies">
+            {{rate.total(c) | currency:c}}
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
