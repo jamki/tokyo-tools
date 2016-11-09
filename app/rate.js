@@ -4,7 +4,7 @@ angular.module('rate1', [])
   this.inCurr = 'JPY';
   this.currencies = ['JPY', 'GBP'];
   this.usdToForeignRates = {
-    JPY: 128.029,
+    JPY: 127.5,
     GBP: 1
   };
 
